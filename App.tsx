@@ -1,10 +1,14 @@
+import { ThemeProvider } from "styled-components/native";
 import Home from "@screens/home";
+import theme from "@theme/index";
 
 
 
 export default function App() {
   return (
-    <Home/>
+    <ThemeProvider theme={theme}>
+          <Home/>
+    </ThemeProvider>
   );
 }
 
