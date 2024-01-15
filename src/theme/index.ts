@@ -21,8 +21,8 @@ export default{
     },
 
     FONTES:{
-        regular:'',
-        bold:'',
+        regular:'NunitoSans_400Regular',
+        bold:'NunitoSans_700Bold',
     },
 
     FONT_SIZE:{
