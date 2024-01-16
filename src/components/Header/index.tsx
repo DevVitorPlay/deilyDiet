@@ -1,5 +1,5 @@
 import React from 'react';
-import { BackButton, BackButtonTypeStyleProps, BackIcon, BackgroundTypeStyleProps, ContainerContent, ContainerHome, Content, Logo, SubTitle, Title, User } from "./styles";
+import { BackButton, BackIcon, ContainerContent, ContainerHome, Content, Logo, Title, User } from "./styles";
 import ImageLogo from "@assets/logo.png"
 import ImageUser from "@assets/user.png"
 
@@ -7,13 +7,10 @@ type showBackground = "PRIMARY" | "SECONDARY";
 
 type Props = {
     title?: string;
-    subtitle?: string;
-    typeBackground?: BackgroundTypeStyleProps;
-    typeBackbutton?: BackButtonTypeStyleProps;
     showBackground: showBackground;
 }
 
-export function Header({ title, subtitle, typeBackground = 'PRIMARY', typeBackbutton = 'PRIMARY', showBackground = 'PRIMARY' }: Props) {
+export function Header({ title, showBackground = 'PRIMARY' }: Props) {
     return (
         <>
             {showBackground === 'PRIMARY' && (
@@ -24,17 +21,14 @@ export function Header({ title, subtitle, typeBackground = 'PRIMARY', typeBackbu
             )}
 
             {showBackground === 'SECONDARY' && (
-                <ContainerContent type={typeBackground} typeButton={typeBackbutton}>
+                <ContainerContent  >
                     <BackButton>
-                        <BackIcon name='arrow-back' typeButton={typeBackbutton} />
+                        <BackIcon name='arrow-back'  />
                     </BackButton>
                     <Content>
                         <Title>
                             {title}
                         </Title>
-                        <SubTitle>
-                            {subtitle}
-                        </SubTitle>
                     </Content>
                 </ContainerContent>
             )}

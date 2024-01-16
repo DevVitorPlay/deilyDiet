@@ -1,22 +1,31 @@
 import { View } from "react-native";
 import styled, {css} from "styled-components/native";
-import {Ionicons } from "@expo/vector-icons";
-import { BackButtonTypeStyleProps, BackgroundTypeStyleProps } from "@components/Header/styles";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
+export type BackgroundTypeStyleProps = "PRIMARY" | "SECONDARY";
 
 type Props = {
     type: BackgroundTypeStyleProps;
-    typeButton: BackButtonTypeStyleProps;
+    
 }
 
 
 export const Container = styled(View)<Props>`
-    width: 80%;
+    width: 90%;
     height: 100px;
     border-radius: 20px;
+    flex-direction: row;
     background-color: ${({theme,  type}) => type === "PRIMARY" ? theme.COLORS.gray_5 : theme.COLORS.red_light };
 
 
+`;
+
+export const ContainerText = styled.View`
+    flex: 1;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40px;
 `;
 
 
@@ -36,16 +45,22 @@ export const SubTitle = styled.Text`
     `}
 `;
 
-export const BackButton = styled.TouchableOpacity`
-    flex: 1;
-    width: 10%;
+export const Button = styled.TouchableOpacity`
+    height: 100%;
+    width: 40px;
+    align-items: center;
 `;
 
-export const BackIcon = styled(Ionicons).attrs<Props>(({ theme, typeButton }) => ({
+export const BackIcon = styled(MaterialCommunityIcons).attrs<Props>(({ theme, type }) => ({
     size: 32,
-    color: typeButton === 'PRIMARY' ? theme.COLORS.gray_2 : theme.COLORS.red_dark
+    color: type === 'PRIMARY' ? theme.COLORS.green_dark : theme.COLORS.red_dark
 }))``;
 
+export const TopIcon = styled(MaterialCommunityIcons).attrs<Props>(({ theme, type }) => ({
+    size: 32,
+    color: type === 'PRIMARY' ? theme.COLORS.green_dark : theme.COLORS.red_dark,
+  }))``;
+  
 export const Content = styled.View`
     align-items: center;
     justify-content: center;
